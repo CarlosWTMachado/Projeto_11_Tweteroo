@@ -68,6 +68,13 @@ app.post('/sign-up', (req, res) => {
 	res.send("OK");
 });
 
+app.post('/tweets', (req, res) => {
+	let {username, tweet} = req.body;
+	tweets.unshift({username: username, tweet: tweet});
+	console.log(tweets[0]);
+	res.send("OK");
+});
+
 app.get("/tweets", (_, res) => {
 	let last_tweets = [];
 	for(let i = 0; i < tweets.length && i < 10; i++){
