@@ -4,6 +4,9 @@ import cors from 'cors';
 const app = express();
 app.use(cors());
 
+app.use(express.json()) // for parsing application/json
+//app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 let usuarios = [
 	{
 		username: 'bobesponja', 
@@ -57,6 +60,13 @@ let tweets = [
 		tweet: "eu amo o hub"
 	}
 ];
+
+app.post('/sign-up', (req, res) => {
+	let {username, avatar} = req.body;
+	usuarios.push({username: username, avatar: avatar});
+	console.log(usuarios);
+	res.send("OK");
+});
 
 app.get("/tweets", (_, res) => {
 	let last_tweets = [];
