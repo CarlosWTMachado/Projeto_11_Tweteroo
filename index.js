@@ -96,8 +96,12 @@ function validURL(str) {
 
 app.post('/sign-up', (req, res) => {
 	let {username, avatar} = req.body;
-	if(username === "" || avatar === "" || !validURL(avatar)){
-		res.sendStatus(400);
+	if(username === "" || avatar === ""){
+		res.status(400).send('Todos os campos são obrigatórios!');
+		return;
+	}
+	if(!validURL(avatar)){
+		res.status(400).send('Url invalida');
 		return;
 	}
 	usuarios.push({username: username, avatar: avatar});
@@ -108,7 +112,7 @@ app.post('/sign-up', (req, res) => {
 app.post('/tweets', (req, res) => {
 	let {username, tweet} = req.body;
 	if(username === "" || tweet === ""){
-		res.sendStatus(400);
+		res.status(400).send('Todos os campos são obrigatórios!');
 		return;
 	}
 	tweets.unshift({username: username, tweet: tweet});
