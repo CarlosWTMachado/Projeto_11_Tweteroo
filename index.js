@@ -89,8 +89,17 @@ let tweets = [
 	}
 ];
 
+function validURL(str) {
+	const pattern = /^(http(s)?:\/\/).+\.com.+$/i;
+	return pattern.test(str);
+  }
+
 app.post('/sign-up', (req, res) => {
 	let {username, avatar} = req.body;
+	if(username === "" || avatar === "" || !validURL(avatar)){
+		res.sendStatus(400);
+		return;
+	}
 	usuarios.push({username: username, avatar: avatar});
 	console.log(usuarios);
 	res.send("OK");
@@ -98,6 +107,10 @@ app.post('/sign-up', (req, res) => {
 
 app.post('/tweets', (req, res) => {
 	let {username, tweet} = req.body;
+	if(username === "" || tweet === ""){
+		res.sendStatus(400);
+		return;
+	}
 	tweets.unshift({username: username, tweet: tweet});
 	console.log(tweets[0]);
 	res.send("OK");
