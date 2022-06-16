@@ -106,7 +106,7 @@ app.post('/sign-up', (req, res) => {
 	}
 	usuarios.push({username: username, avatar: avatar});
 	console.log(usuarios);
-	res.send("OK");
+	res.status(201).send("OK");
 });
 
 app.post('/tweets', (req, res) => {
@@ -117,7 +117,7 @@ app.post('/tweets', (req, res) => {
 	}
 	tweets.unshift({username: username, tweet: tweet});
 	console.log(tweets[0]);
-	res.send("OK");
+	res.status(201).send("OK");
 });
 
 app.get("/tweets", (_, res) => {
