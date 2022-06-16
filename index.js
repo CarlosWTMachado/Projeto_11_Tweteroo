@@ -9,54 +9,82 @@ app.use(express.json()) // for parsing application/json
 
 let usuarios = [
 	{
-		username: 'bobesponja', 
+		username: 'Bob Esponja', 
 		avatar: "https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info" 
+	},
+	{
+		username: 'Heráclito', 
+		avatar: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Heraclitus%2C_Johannes_Moreelse.jpg" 
+	},
+	{
+		username: 'Arthur Schopenhauer', 
+		avatar: "https://www.revistaprosaversoearte.com/content/uploads/2020/05/arthur-schopenhauer-1-1068x802.jpg" 
+	},
+	{
+		username: 'Friedrich Nietzsche', 
+		avatar: "https://contraosacademicos.com.br/wp-content/uploads/2020/04/Lista_de_Leitura_Ordenada_Nietzsche-1.jpg" 
+	},
+	{
+		username: 'Protágoras',
+		avatar: "https://static.todamateria.com.br/upload/57/6d/576df00672819-protagoras.jpg"
+	},
+	{
+		username: 'René Descartes',
+		avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg/800px-Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg"
+	},
+	{
+		username: 'Monkey D. Luffy',
+		avatar: "https://i1.sndcdn.com/avatars-xZb8MS9peo3DljjZ-UJZM3g-t240x240.jpg"
+	},
+	{
+		username: 'Immanuel Kant',
+		avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Immanuel_Kant_%28painted_portrait%29.jpg/416px-Immanuel_Kant_%28painted_portrait%29.jpg"
+	},
+	{
+		username: 'Platão',
+		avatar: "https://1.bp.blogspot.com/-1qEeK4a0_mM/XW-rUvPDe0I/AAAAAAAAgvQ/LsB74SvCMGgxtc3ToZ0kf1OGaZ7tlq5-QCLcBGAs/w680/platao-filosofia.jpg"
 	}
 ];
 
 let tweets = [
 	{
-		username: 'bobesponja', 
-		tweet: "eu amo o hub"
+		username: 'Heráclito', 
+		tweet: "Não se pode pisar duas vezes no mesmo rio."
 	},
 	{
-		username: 'bobesponja', 
-		tweet: "eu amo o hub"
+		username: 'Arthur Schopenhauer', 
+		tweet: "A vida é um processo constante de morrer."
 	},
 	{
-		username: 'bobesponja', 
-		tweet: "eu amo o hub"
+		username: 'Friedrich Nietzsche',
+		tweet: "Deus está morto."
 	},
 	{
-		username: 'bobesponja', 
-		tweet: "eu amo o hub"
+		username: 'Protágoras',
+		tweet: "O homem é a medida de todas as coisas."
 	},
 	{
-		username: 'bobesponja', 
-		tweet: "eu amo o hub"
+		username: 'René Descartes',
+		tweet: "Penso, logo existo"
 	},
 	{
-		username: 'bobesponja', 
-		tweet: "eu amo o hub"
+		username: 'Monkey D. Luffy',
+		tweet: "Eu não quero conquistar nada, só acho que a pessoa com mais liberdade do mundo é o rei dos piratas!"
 	},
 	{
-		username: 'bobesponja', 
-		tweet: "eu amo o hub"
+		username: 'Friedrich Nietzsche',
+		tweet: "O que não provoca minha morte faz com que eu fique mais forte."
 	},
 	{
-		username: 'bobesponja', 
-		tweet: "eu amo o hub"
+		username: 'Immanuel Kant',
+		tweet: "Podemos julgar o coração de um homem pela forma como ele trata os animais."
 	},
 	{
-		username: 'bobesponja', 
-		tweet: "eu amo o hub"
+		username: 'Platão',
+		tweet: "Quem comete uma injustiça é sempre mais infeliz que o injustiçado."
 	},
 	{
-		username: 'bobesponja', 
-		tweet: "eu amo o hub"
-	},
-	{
-		username: 'bobesponja', 
+		username: 'Bob Esponja', 
 		tweet: "eu amo o hub"
 	}
 ];
