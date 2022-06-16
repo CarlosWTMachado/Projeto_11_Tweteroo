@@ -137,4 +137,20 @@ app.get("/tweets", (_, res) => {
 	res.send(last_tweets);
 });
 
+app.get("/tweets/:USERNAME", (req, res) => {
+	const username = req.params.USERNAME;
+	let user = usuarios.find(e => e.username === username);
+	let user_tweets = [];
+	for(let i = 0; i < tweets.length; i++){
+		if(tweets[i].username === username){
+			user_tweets.push({
+				username: username,
+				avatar: user.avatar,
+				tweet: tweets[i].tweet
+			});
+		}
+	}
+	res.send(user_tweets);
+});
+
 app.listen(5000);
