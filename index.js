@@ -86,6 +86,18 @@ let tweets = [
 	{
 		username: 'Bob Esponja', 
 		tweet: "eu amo o hub"
+	},
+	{
+		username: 'Bob Esponja', 
+		tweet: "eu amo o hub"
+	},
+	{
+		username: 'Bob Esponja', 
+		tweet: "eu amo o hub"
+	},
+	{
+		username: 'Bob Esponja', 
+		tweet: "eu amo o hub"
 	}
 ];
 
@@ -110,7 +122,8 @@ app.post('/sign-up', (req, res) => {
 });
 
 app.post('/tweets', (req, res) => {
-	let {username, tweet} = req.body;
+	let username = req.headers.user;
+	let tweet = req.body.tweet;
 	if(username === "" || tweet === ""){
 		res.status(400).send('Todos os campos são obrigatórios!');
 		return;
