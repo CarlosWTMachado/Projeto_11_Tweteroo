@@ -133,19 +133,38 @@ app.post('/tweets', (req, res) => {
 	res.status(201).send("OK");
 });
 
-app.get("/tweets", (_, res) => {
+app.get("/tweets", (req, res) => {
 	let last_tweets = [];
-	for(let i = 0; i < tweets.length && i < 10; i++){
-		let avatar = "";
-		for(let j = 0; j < usuarios.length; j++){
-			if(tweets[i].username === usuarios[j].username)
-				avatar = usuarios[j].avatar;
+	let page = req.query.page;
+	if(req.query.page === undefined){
+		for(let i = 0; i < tweets.length && i < 10; i++){
+			let avatar = "";
+			for(let j = 0; j < usuarios.length; j++){
+				if(tweets[i].username === usuarios[j].username)
+					avatar = usuarios[j].avatar;
+			}
+			last_tweets.push({
+				username: tweets[i].username,
+				avatar: avatar,
+				tweet: tweets[i].tweet
+			});
 		}
-		last_tweets.push({
-			username: tweets[i].username,
-			avatar: avatar,
-			tweet: tweets[i].tweet
-		});
+	}else if(page >= 1){
+		for(let i = 10 * page; i < tweets.length && i < 10 + 10 * page; i++){
+			let avatar = "";
+			for(let j = 0; j < usuarios.length; j++){
+				if(tweets[i].username === usuarios[j].username)
+					avatar = usuarios[j].avatar;
+			}
+			last_tweets.push({
+				username: tweets[i].username,
+				avatar: avatar,
+				tweet: tweets[i].tweet
+			});
+		}
+	}else{
+		res.sendStatus(400);
+		return;
 	}
 	res.send(last_tweets);
 });
